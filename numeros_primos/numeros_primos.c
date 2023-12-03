@@ -22,24 +22,45 @@ int main(void)
 // Solicitar números para verificação
 void solicitarNumeros(int *numeroMinimo, int *numeroMaximo)
 {
+
+    bool ehNumero = false;
+
     printf("\nVamos analisar os números primos disponíveis entre 2 números naturais!\n");
 
     do
     {
-        printf("\nPor favor, informe 1 número para o valor mínimo:");
-        scanf("%d", &*numeroMinimo);
-    } while (*numeroMinimo < 0);
+        printf("\nPor favor, informe 1 número natural para o valor mínimo:");
+        if (scanf("%d", &*numeroMinimo) == 1)
+        {
+            ehNumero = true;
+        }
+        else
+        {
+            while (getchar() != '\n');
+        }
+    } while (*numeroMinimo < 0 || !ehNumero);
+
+    ehNumero = false;
 
     do
     {
-        printf("\nPor favor, informe 1 número para o valor máximo (igual ou maior que o valor mínimo):");
-        scanf("%d", &*numeroMaximo);
-    } while (*numeroMaximo < *numeroMinimo);
+        printf("\nPor favor, informe 1 número natural para o valor máximo (igual ou maior que o valor mínimo):");
+
+        if (scanf("%d", &*numeroMaximo) == 1)
+        {
+            ehNumero = true;
+        }
+        else
+        {
+            while (getchar() != '\n');
+        }
+    } while (*numeroMaximo < *numeroMinimo || !ehNumero);
 }
 
 //  Verificar e exibir números primos (maior do que 1 - divisível apenas por 1 e por ele mesmo)
 void verificarNumerosPrimos(int numeroMinimo, int numeroMaximo)
 {
+    printf("\n");
     for (int i = numeroMinimo; i <= numeroMaximo; i++)
     {
         bool ehPrimo = true;
@@ -55,4 +76,5 @@ void verificarNumerosPrimos(int numeroMinimo, int numeroMaximo)
             printf("Número primo: %d \n", i);
         }
     }
+    printf("\n");
 }
