@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <locale.h>
+#include <stdbool.h>
 
 // Protótipos
 void receberValores(float *valorConta, float *taxaServico, float *imposto);
@@ -23,15 +24,52 @@ int main(void)
     exibirValorConta(valorTotalConta, valorContaDividida);
 }
 
-// Receber o valor da conta, taxa de serviço e imposto
+// Receber e valida o valor da conta, taxa de serviço e imposto
 void receberValores(float *valorConta, float *taxaServico, float *imposto)
 {
-    printf("\nPor favor, informe: \n\n1 - valor da conta em R$ (Exemplo: 000,00): ");
-    scanf("%f", &*valorConta);
-    printf("\n2 - taxa de serviço em %c (Exemplo: 0,0): ", 37);
-    scanf("%f", &*taxaServico);
-    printf("\n3 - imposto em %c (Exemplo: 0,0): ", 37);
-    scanf("%f", &*imposto);
+    bool ehNumero = false;
+    printf("\nPor favor, informe: \n");
+    do
+    {
+        printf("\n1 - valor da conta em R$ (Exemplo: 000,00): ");
+        if (scanf("%f", &*valorConta) == 1)
+        {
+            ehNumero = true;
+        }
+        else
+        {
+            while (getchar() != '\n');
+        }
+    } while (!ehNumero);
+
+    ehNumero = false;
+    do
+    {
+        printf("\n2 - taxa de serviço em %c (Exemplo: 0,0): ", 37);
+        if (scanf("%f", &*taxaServico) == 1)
+        {
+            ehNumero = true;
+        }
+        else
+        {
+            while (getchar() != '\n');
+        }
+    } while (!ehNumero);
+
+    ehNumero = false;
+
+    do
+    {
+        printf("\n3 - imposto em %c (Exemplo: 0,0): ", 37);
+        if (scanf("%f", &*imposto) == 1)
+        {
+            ehNumero = true;
+        }
+        else
+        {
+            while (getchar() != '\n');
+        }
+    } while (!ehNumero);
 }
 
 // Calcular o valor da conta com taxa de serviço e imposto
