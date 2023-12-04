@@ -18,6 +18,8 @@
 
 📌 Exercício 2: Determinar quais são os números primos existentes entre dois números naturais (mínimo e máximo).
 
+📌 Exercício 3: Determinar quanto tempo leva para atingir o tamanho populacional desejado, sabendo que: Tamanho populacional = n; A cada ano: nascem n/3 e morrem n/4;
+
 ## 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas para a realização dos exercícios:
