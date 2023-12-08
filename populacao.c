@@ -72,5 +72,7 @@ void calcularTempo(int populacaoAtual, int populacaoDesejada, int *anosNecessari
 // Exibir o tempo necessário no terminal
 void exibirTempo(int tempo, int populacaoDesejada)
 {
-    printf("\nSão necessários %d ano(s) para atingir o tamanho populacional de %d lhamas!\n\n", tempo, populacaoDesejada);
+    const char *NECESSIDADE = (tempo > 1) ? "São necessários" : "É necessário";
+    const char *ANO_S = (tempo > 1) ? "anos" : "ano";
+    printf("\n%s %d %s para atingir o tamanho populacional de %d lhamas!\n\n", NECESSIDADE, tempo, ANO_S, populacaoDesejada);
 }
