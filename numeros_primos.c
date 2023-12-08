@@ -1,4 +1,5 @@
-// Determinar quais são os números primos existentes entre dois números naturais (mínimo e máximo);
+// Determinar quais são os números primos existentes entre dois números (mínimo e máximo). Sabendo que: 
+// Os números forneceidos devem ser naturais (inteiros positivos maiores que zero)
 
 #include <stdio.h>
 #include <locale.h>
@@ -25,11 +26,11 @@ void solicitarNumeros(int *numeroMinimo, int *numeroMaximo)
 
     bool ehNumero = false;
 
-    printf("\nVamos analisar os números primos disponíveis entre 2 números naturais!\n");
+    printf("\nVamos analisar os números primos disponíveis entre 2 números naturais (inteiros positivos maiores que zero)!\n");
 
     do
     {
-        printf("\nPor favor, informe 1 número natural para o valor mínimo:");
+        printf("\nPor favor, informe um número natural para o valor mínimo: ");
         if (scanf("%d", &*numeroMinimo) == 1)
         {
             ehNumero = true;
@@ -38,13 +39,13 @@ void solicitarNumeros(int *numeroMinimo, int *numeroMaximo)
         {
             while (getchar() != '\n');
         }
-    } while (*numeroMinimo < 0 || !ehNumero);
+    } while (*numeroMinimo <= 0 || !ehNumero);
 
     ehNumero = false;
 
     do
     {
-        printf("\nPor favor, informe 1 número natural para o valor máximo (igual ou maior que o valor mínimo):");
+        printf("\nPor favor, informe um número natural para o valor máximo (igual ou maior que o valor mínimo): ");
 
         if (scanf("%d", &*numeroMaximo) == 1)
         {
